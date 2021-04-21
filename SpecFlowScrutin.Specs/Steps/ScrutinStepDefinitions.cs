@@ -64,6 +64,12 @@ namespace SpecFlowScrutin.Specs.Steps
             _scrutin.Vainqueur.Nom = nom;
         }
 
+        [Then(@"show (.*)")]
+        public void ThenShowDavidMarc(string p)
+        {
+            _scrutin.ShowResult().Should().Be(p);
+        }
+
 
     }
 }

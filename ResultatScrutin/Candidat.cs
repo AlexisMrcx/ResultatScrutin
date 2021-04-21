@@ -8,6 +8,7 @@ namespace ResultatScrutin
     {
         public string Nom { get; set; }
         public int NbVoie { get; set; }
+        public float Percent { get; set; }
 
         public Candidat(string nom)
         {

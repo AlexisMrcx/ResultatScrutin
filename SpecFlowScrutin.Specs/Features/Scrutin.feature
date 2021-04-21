@@ -30,3 +30,18 @@ Scenario: candidate have more 50% of votes
 	When all peoples votes
 	And counting is finish
 	Then David won
+
+Scenario: Show all votes and percent
+	Given followings candidates
+	| candidates |
+	| David      |
+	| Marc       |
+	Given followings votes
+	| name  |
+	| David |
+	| David |
+	| David |
+	| Marc  |
+	When all peoples votes
+	And counting is finish
+	Then show David: 3;75%, Marc: 1;25%
