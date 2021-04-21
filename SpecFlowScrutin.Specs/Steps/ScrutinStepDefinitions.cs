@@ -28,17 +28,42 @@ namespace SpecFlowScrutin.Specs.Steps
             }
         }
 
+        [Given("followings candidates")]
+        public void GivenFollowingsCandidates(Table table)
+        {
+            foreach(TableRow row in table.Rows)
+            {
+                _scrutin.AddCandidate(row[0]);
+            }
+        }
+
+
         [When("all peoples votes")]
         public void WhenAllPeoplesVotes()
         {
             _scrutin.FinVote();
         }
 
+        [When(@"counting is finish")]
+        public void WhenCountingIsFinish()
+        {
+            _scrutin.DepouilleVotes();
+        }
+
+
+
         [Then("vote is closed")]
         public void ThenVoteIsClosed()
         {
             _scrutin.IsClosed.Should().BeTrue();
         }
+
+        [Then(@"(.*) won")]
+        public void ThenCandidateWon(string nom)
+        {
+            _scrutin.Vainqueur.Nom = nom;
+        }
+
 
     }
 }

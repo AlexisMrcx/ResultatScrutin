@@ -4,7 +4,15 @@ using System.Text;
 
 namespace ResultatScrutin
 {
-    class Candidat
+    public class Candidat
     {
+        public string Nom { get; set; }
+        public int NbVoie { get; set; }
+
+        public Candidat(string nom)
+        {
+            Nom = nom;
+            NbVoie = 0;
+        }
     }
 }

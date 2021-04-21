@@ -19,11 +19,7 @@ namespace SpecFlowScrutin.Specs.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.7.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("Scrutin", Description=@"![Calculator](https://specflow.org/wp-content/uploads/2020/09/calculator.png)
-Simple calculator for adding **two** numbers
-
-Link to a feature: [Calculator](SpecFlowScrutin.Specs/Features/Calculator.feature)
-***Further read***: **[Learn more about how to generate Living Documentation](https://docs.specflow.org/projects/specflow-livingdoc/en/latest/LivingDocGenerator/Generating-Documentation.html)**", SourceFile="Features\\Scrutin.feature", SourceLine=0)]
+    [TechTalk.SpecRun.FeatureAttribute("Scrutin", SourceFile="Features\\Scrutin.feature", SourceLine=0)]
     public partial class ScrutinFeature
     {
         
@@ -38,11 +34,7 @@ Link to a feature: [Calculator](SpecFlowScrutin.Specs/Features/Calculator.featur
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Scrutin", @"![Calculator](https://specflow.org/wp-content/uploads/2020/09/calculator.png)
-Simple calculator for adding **two** numbers
-
-Link to a feature: [Calculator](SpecFlowScrutin.Specs/Features/Calculator.feature)
-***Further read***: **[Learn more about how to generate Living Documentation](https://docs.specflow.org/projects/specflow-livingdoc/en/latest/LivingDocGenerator/Generating-Documentation.html)**", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Scrutin", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -78,13 +70,13 @@ Link to a feature: [Calculator](SpecFlowScrutin.Specs/Features/Calculator.featur
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("vote is finish", SourceLine=8)]
+        [TechTalk.SpecRun.ScenarioAttribute("vote is finish", SourceLine=3)]
         public virtual void VoteIsFinish()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("vote is finish", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 9
+#line 4
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -118,16 +110,79 @@ this.ScenarioInitialize(scenarioInfo);
                             "David"});
                 table1.AddRow(new string[] {
                             "Jeff"});
-                table1.AddRow(new string[] {
-                            ""});
-#line 10
- testRunner.Given("this following votes", ((string)(null)), table1, "Given ");
+#line 5
+ testRunner.Given("followings votes", ((string)(null)), table1, "Given ");
 #line hidden
-#line 19
+#line 13
  testRunner.When("all peoples votes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 20
+#line 14
  testRunner.Then("vote is closed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("candidate have more 50% of votes", SourceLine=16)]
+        public virtual void CandidateHaveMore50OfVotes()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("candidate have more 50% of votes", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 17
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "candidates"});
+                table2.AddRow(new string[] {
+                            "David"});
+                table2.AddRow(new string[] {
+                            "Marc"});
+                table2.AddRow(new string[] {
+                            "Jeff"});
+#line 18
+ testRunner.Given("followings candidates", ((string)(null)), table2, "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                            "name"});
+                table3.AddRow(new string[] {
+                            "David"});
+                table3.AddRow(new string[] {
+                            "David"});
+                table3.AddRow(new string[] {
+                            "Marc"});
+                table3.AddRow(new string[] {
+                            "David"});
+                table3.AddRow(new string[] {
+                            "Jeff"});
+#line 23
+ testRunner.Given("followings votes", ((string)(null)), table3, "Given ");
+#line hidden
+#line 30
+ testRunner.When("all peoples votes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 31
+ testRunner.And("counting is finish", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 32
+ testRunner.Then("David won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
