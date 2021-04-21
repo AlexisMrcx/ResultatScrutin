@@ -15,5 +15,11 @@ namespace ResultatScrutin
             Nom = nom;
             NbVoie = 0;
         }
+
+        public void RazVoie()
+        {
+            NbVoie = 0;
+            Percent = 0;
+        }
     }
 }

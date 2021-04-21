@@ -9,12 +9,14 @@ namespace ResultatScrutin
         private List<Candidat> candidats;
         public bool IsClosed { get; set; }
         public Candidat Vainqueur { get; set; }
+        public bool IsSecondRound { get; set; }
 
         public Scrutin()
         {
             votes = new List<string>();
             candidats = new List<Candidat>();
             IsClosed = false;
+            IsSecondRound = false;
         }
 
         public void AddVote(string v)
@@ -62,6 +64,23 @@ namespace ResultatScrutin
             return result.TrimEnd(',', ' ');
         }
 
+        public void CreateSecondRound(string c1, string c2)
+        {
+            Candidat candidat1, candidat2;
+
+            candidat1 = candidats.Find(x => x.Nom == c1);
+            candidat2 = candidats.Find(x => x.Nom == c2);
+
+            candidat1.RazVoie();
+            candidat2.RazVoie();
+
+            candidats = new List<Candidat>();
+            candidats.Add(candidat1);
+            candidats.Add(candidat2);
+
+            IsSecondRound = true;
+        }
+
 
         public int NbTotalVoie
         {
@@ -70,5 +89,7 @@ namespace ResultatScrutin
                 return votes.Count;
             }
         }
+
+        
     }
 }

@@ -70,6 +70,12 @@ namespace SpecFlowScrutin.Specs.Steps
             _scrutin.ShowResult().Should().Be(p);
         }
 
+        [Then(@"second round with (.*) and (.*)")]
+        public void ThenSecondRoundWith(string c1, string c2)
+        {
+            _scrutin.CreateSecondRound(c1, c2);
+            _scrutin.IsSecondRound.Should().BeTrue();
+        }
 
     }
 }

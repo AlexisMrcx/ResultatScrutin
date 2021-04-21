@@ -45,3 +45,21 @@ Scenario: Show all votes and percent
 	When all peoples votes
 	And counting is finish
 	Then show David: 3;75%, Marc: 1;25%
+
+Scenario: don't have majority
+	Given followings candidates
+	| candidates |
+	| David      |
+	| Marc       |
+	| Jeff       |
+	Given followings votes
+	| name  |
+	| David |
+	| David |
+	| David |
+	| Marc  |
+	| Marc  |
+	| Jeff  |
+	When all peoples votes
+	And counting is finish
+	Then second round with David and Marc
