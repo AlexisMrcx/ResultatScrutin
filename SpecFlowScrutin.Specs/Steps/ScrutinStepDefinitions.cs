@@ -37,6 +37,13 @@ namespace SpecFlowScrutin.Specs.Steps
             }
         }
 
+        [Given(@"is second round")]
+        public void GivenIsSecondRound()
+        {
+            _scrutin.IsSecondRound = true;
+        }
+
+
 
         [When("all peoples votes")]
         public void WhenAllPeoplesVotes()
@@ -61,7 +68,7 @@ namespace SpecFlowScrutin.Specs.Steps
         [Then(@"(.*) won")]
         public void ThenCandidateWon(string nom)
         {
-            _scrutin.Vainqueur.Nom = nom;
+            _scrutin.GetVainqueur().Nom.Should().Be(nom);
         }
 
         [Then(@"show (.*)")]
@@ -75,6 +82,12 @@ namespace SpecFlowScrutin.Specs.Steps
         {
             _scrutin.CreateSecondRound(c1, c2);
             _scrutin.IsSecondRound.Should().BeTrue();
+        }
+
+        [Then(@"egality")]
+        public void ThenEgality()
+        {
+            _scrutin.GetVainqueur().Should().Be(null);
         }
 
     }

@@ -48,7 +48,34 @@ namespace ResultatScrutin
             foreach (Candidat c in candidats)
             {
                 c.Percent = ((float)c.NbVoie / (float)NbTotalVoie) * 100;
-                if (c.NbVoie > (votes.Count / 2)) { Vainqueur = c; }
+            }
+
+        }
+
+        public Candidat GetVainqueur()
+        {
+            Candidat vainqueur = null;
+
+            if (!IsSecondRound)
+            {
+                foreach (Candidat c in candidats)
+                {
+                    if (c.NbVoie > (votes.Count / 2)) { vainqueur = c; }
+                }
+
+                return vainqueur;
+            }
+            else
+            {
+                if(candidats[0].Percent > candidats[1].Percent)
+                {
+                    vainqueur = candidats[0];
+                }else if(candidats[1].Percent > candidats[0].Percent)
+                {
+                    vainqueur = candidats[1];
+                }
+                
+                return vainqueur;
             }
         }
 
@@ -90,6 +117,6 @@ namespace ResultatScrutin
             }
         }
 
-        
+
     }
 }
