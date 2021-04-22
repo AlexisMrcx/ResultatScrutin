@@ -112,3 +112,22 @@ Scenario: have white vote
 	When all peoples votes
 	And counting is finish
 	Then David won
+
+Scenario: second and third egality on 1st round
+	Given followings candidates
+		| candidates |
+		| David      |
+		| Marc       |
+		| Jeff       |
+	Given followings votes
+		| name  |
+		| David |
+		| David |
+		| David |
+		| Marc  |
+		| Marc  |
+		| Jeff  |
+		| Jeff  |
+	When all peoples votes
+	And counting is finish
+	Then David won

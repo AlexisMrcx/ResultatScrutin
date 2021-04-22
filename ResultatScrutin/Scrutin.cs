@@ -63,18 +63,74 @@ namespace ResultatScrutin
                     if (c.NbVoie > (votes.Count / 2)) { vainqueur = c; }
                 }
 
+                if (vainqueur == null)
+                {
+                    //Candidat tampPremier = null, tampDeuxieme = null;
+                    //foreach (Candidat c in candidats)
+                    //{
+                    //    if (tampPremier == null)
+                    //    {
+                    //        tampPremier = c;
+                    //    }
+                    //    else if (tampDeuxieme == null)
+                    //    {
+                    //        tampDeuxieme = c;
+                    //    }
+                    //    else
+                    //    {
+                    //        if (c.NbVoie > tampPremier.NbVoie)
+                    //        {
+                    //            tampDeuxieme = tampPremier;
+                    //            tampPremier = c;
+                    //        }else if (c.NbVoie > tampDeuxieme.NbVoie)
+                    //        {
+                    //            tampDeuxieme = c;
+                    //        }
+                    //    }
+
+
+                    //}
+                    List<Candidat> resultat = null;
+                    bool isInsert = false;
+                    foreach (Candidat c in candidats)
+                    {
+                        if (resultat == null)
+                        {
+                            resultat = new List<Candidat>();
+                            resultat.Add(c);
+                        }
+                        else
+                        {
+                            for (int i = 0; i < resultat.Count - 1; i++)
+                            {
+                                if (c.NbVoie >= resultat[i].NbVoie)
+                                {
+                                    resultat.Insert(i, c);
+                                    isInsert = true;
+                                    break;
+                                }
+                            }
+
+                            if (!isInsert) { resultat.Add(c); }
+                        }
+                    }
+
+                    //Si le deuxième et le troisième sont égalité on fait directement gagner le premier
+                    if(resultat[1].NbVoie == resultat[2].NbVoie) { vainqueur = resultat[0]; }
+                }
                 return vainqueur;
             }
             else
             {
-                if(candidats[0].Percent > candidats[1].Percent)
+                if (candidats[0].Percent > candidats[1].Percent)
                 {
                     vainqueur = candidats[0];
-                }else if(candidats[1].Percent > candidats[0].Percent)
+                }
+                else if (candidats[1].Percent > candidats[0].Percent)
                 {
                     vainqueur = candidats[1];
                 }
-                
+
                 return vainqueur;
             }
         }

@@ -512,6 +512,75 @@ this.ScenarioInitialize(scenarioInfo);
             }
             this.ScenarioCleanup();
         }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("second and third egality on 1st round", SourceLine=115)]
+        public virtual void SecondAndThirdEgalityOn1StRound()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("second and third egality on 1st round", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 116
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+                TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+                            "candidates"});
+                table14.AddRow(new string[] {
+                            "David"});
+                table14.AddRow(new string[] {
+                            "Marc"});
+                table14.AddRow(new string[] {
+                            "Jeff"});
+#line 117
+ testRunner.Given("followings candidates", ((string)(null)), table14, "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
+                            "name"});
+                table15.AddRow(new string[] {
+                            "David"});
+                table15.AddRow(new string[] {
+                            "David"});
+                table15.AddRow(new string[] {
+                            "David"});
+                table15.AddRow(new string[] {
+                            "Marc"});
+                table15.AddRow(new string[] {
+                            "Marc"});
+                table15.AddRow(new string[] {
+                            "Jeff"});
+                table15.AddRow(new string[] {
+                            "Jeff"});
+#line 122
+ testRunner.Given("followings votes", ((string)(null)), table15, "Given ");
+#line hidden
+#line 131
+ testRunner.When("all peoples votes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 132
+ testRunner.And("counting is finish", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 133
+ testRunner.Then("David won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
