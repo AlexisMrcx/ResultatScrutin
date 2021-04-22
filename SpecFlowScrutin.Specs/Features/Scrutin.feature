@@ -96,3 +96,19 @@ Scenario: egality on second round
 	When all peoples votes
 	And counting is finish
 	Then egality
+
+Scenario: have white vote
+	Given followings candidates
+		| candidates |
+		| David      |
+		| Marc       |
+	Given followings votes
+		| name  |
+		| David |
+		| David |
+		| David |
+		| Marc  |
+		|       |
+	When all peoples votes
+	And counting is finish
+	Then David won
