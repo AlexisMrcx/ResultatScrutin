@@ -64,34 +64,10 @@ namespace ResultatScrutin
                 }
 
                 if (vainqueur == null)
-                {
-                    //Candidat tampPremier = null, tampDeuxieme = null;
-                    //foreach (Candidat c in candidats)
-                    //{
-                    //    if (tampPremier == null)
-                    //    {
-                    //        tampPremier = c;
-                    //    }
-                    //    else if (tampDeuxieme == null)
-                    //    {
-                    //        tampDeuxieme = c;
-                    //    }
-                    //    else
-                    //    {
-                    //        if (c.NbVoie > tampPremier.NbVoie)
-                    //        {
-                    //            tampDeuxieme = tampPremier;
-                    //            tampPremier = c;
-                    //        }else if (c.NbVoie > tampDeuxieme.NbVoie)
-                    //        {
-                    //            tampDeuxieme = c;
-                    //        }
-                    //    }
-
-
-                    //}
+                {                    
                     List<Candidat> resultat = null;
                     bool isInsert = false;
+
                     foreach (Candidat c in candidats)
                     {
                         if (resultat == null)
